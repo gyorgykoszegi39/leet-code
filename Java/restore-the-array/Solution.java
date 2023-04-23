@@ -14,14 +14,14 @@ public class Solution {
             return results[index];
         
         int result = 0;
-        int number = 0;
+        long number = 0;
         int digit;
         for(int i = index; i < s.length(); i++) {
             digit = s.charAt(i) - '0';
             number = number * 10 + digit;
             
             if(k < number) {
-                return 0;
+                break;
             }
 
             result = (result + DFS(s, k, i + 1, results)) % 1000000007;
@@ -35,5 +35,7 @@ public class Solution {
         System.out.println(new Solution().numberOfArrays("1000", 10000));
         System.out.println(new Solution().numberOfArrays("1000", 10));
         System.out.println(new Solution().numberOfArrays("1317", 2000));
+        System.out.println(new Solution().numberOfArrays("2020", 2000));
+
     }
 }

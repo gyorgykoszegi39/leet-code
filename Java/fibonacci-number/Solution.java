@@ -4,17 +4,17 @@ public class Solution {
         if(n <= 1)
             return n;
         
-            int fPrev = 0, f = 1;
+        int fPrev = 0, f = 1;
 
+        n--;
+        while(n > 0) {
             n--;
-            while(n > 0) {
-                n--;
-                int tmp = f;
-                f += fPrev;
-                fPrev = tmp;
-            }
+            int tmp = f;
+            f += fPrev;
+            fPrev = tmp;
+        }
 
-            return f;
+        return f;
     }
 
     public static void main(String[] args) {

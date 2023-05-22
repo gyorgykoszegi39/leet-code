@@ -10,10 +10,10 @@ public class Solution {
         n -= 2;
 
         while(n > 0) {
-            int tmp = f, tmpPrev = fPrev;
+            int tmp = f;
             f = f + fPrev + fPrevPrev;
+            fPrevPrev = fPrev;
             fPrev = tmp;
-            fPrevPrev = tmpPrev;
             n--;
         }
 

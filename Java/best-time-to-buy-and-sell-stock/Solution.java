@@ -6,7 +6,6 @@ public class Solution {
         }
         
         int maxProfit = 0;
-        int currentPrice = prices[0];
         int bestPrice = prices[0];
         for(i = 1; i < prices.length; i++) {
             if(bestPrice > prices[i]) {

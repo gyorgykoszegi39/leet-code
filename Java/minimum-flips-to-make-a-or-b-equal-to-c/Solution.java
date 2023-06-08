@@ -9,8 +9,6 @@ public class Solution {
             Boolean cBitIsTrue = (c & mask) != 0;
 
             if(!cBitIsTrue.equals(aBitIsTrue || bBitIsTrue)) {
-                System.out.println(aBitIsTrue + " " + bBitIsTrue + " " + cBitIsTrue);
-
                 count++;
 
                 if(aBitIsTrue && bBitIsTrue)

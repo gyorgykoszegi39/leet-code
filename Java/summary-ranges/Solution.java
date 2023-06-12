@@ -18,7 +18,7 @@ public class Solution {
             } else {
                 results.add(String.format("%d->%d", left, nums[i]));
             }
-            i++;
+            //i++;
         }
 
         return results;

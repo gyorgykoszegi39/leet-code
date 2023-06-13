@@ -1,14 +1,33 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class Solution {
     public static int equalPairs(int[][] grid) {
         int count = 0;
         int n = grid.length;
+        Map<String, Integer> pairs = new HashMap<String, Integer>();
+
+        for(int column = 0; column < n; column++) {
+            char[] columnArray = new char[n];
+            for(int row = 0; row < n; row++)
+                columnArray[row] = (char) grid[row][column];
+
+            String key = String.valueOf(columnArray);
+            System.out.println(key);
+            pairs.put(key, pairs.getOrDefault(key, 0) + 1);
+        }
 
         for(int row = 0; row < n; row++) {
+
+            char[] rowArray = new char[n];
             for(int column = 0; column < n; column++)
-                count += isEqualRowAndColumn(grid, n, row, column);
+                rowArray[column] = (char) grid[row][column];
+
+            System.out.println(String.valueOf(rowArray));
+
+            count += pairs.getOrDefault(String.valueOf(rowArray), 0);
         }
-        
+
         return count;
     }
 

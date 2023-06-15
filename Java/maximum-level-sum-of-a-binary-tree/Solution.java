@@ -30,7 +30,6 @@ public class Solution {
                 if(node.left != null) {
                     queue.add(node.left);
                 }
-
                 if(node.right != null) {
                     queue.add(node.right);
                 }
@@ -43,14 +42,11 @@ public class Solution {
 
             level++;
         }
-
         return result;
     }
 
-    
     public static void main(String[] args) {
         Solution s = new Solution();
-
         TreeNode tree = new TreeNode(1,
             new TreeNode(7,
                  new TreeNode(7),

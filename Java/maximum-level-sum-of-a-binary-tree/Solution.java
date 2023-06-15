@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class TreeNode {
     int val;
@@ -15,27 +15,39 @@ class TreeNode {
 }
 public class Solution {
     
-    HashMap<Integer, Integer> levelSums = new HashMap<Integer, Integer>();
     public int maxLevelSum(TreeNode root) {
-        DFS(root, 0);
-        int maxSum = levelSums.get(0), result = 0;
-        for(int i = 1; i < levelSums.size(); i++) {
-            if(maxSum < levelSums.get(i)) {
-                maxSum = levelSums.get(i);
-                result = i;
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        int maxSum = Integer.MIN_VALUE, result = 0, n, currentSum;
+        TreeNode node;
+        queue.add(root);
+        int level = 1;
+        while(!queue.isEmpty()) {
+            currentSum = 0;
+            n = queue.size();
+            for(int i = 0; i < n; i++) {
+                node = queue.poll();
+                currentSum += node.val;
+                if(node.left != null) {
+                    queue.add(node.left);
+                }
+
+                if(node.right != null) {
+                    queue.add(node.right);
+                }
             }
+
+            if(maxSum < currentSum) {
+                maxSum = currentSum;
+                result = level;
+            }
+
+            level++;
         }
-        return result + 1;
+
+        return result;
     }
 
-    private void DFS(TreeNode node, int level) {
-        if(node == null)
-            return;
-            
-        levelSums.put(level, node.val + levelSums.getOrDefault(level, 0));
-        DFS(node.left, level + 1);
-        DFS(node.right, level + 1);
-    }
+    
     public static void main(String[] args) {
         Solution s = new Solution();
 

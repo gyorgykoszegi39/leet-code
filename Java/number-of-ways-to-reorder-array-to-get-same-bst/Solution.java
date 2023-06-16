@@ -6,7 +6,8 @@ class Solution {
     private long[][] pascalTriangle;
     public int numOfWays(int[] nums) {
         int n = nums.length;
-        createPascalTriangle(n);
+        createPascalTriangle(n + 1);
+
         List<Integer> numbers= new ArrayList<Integer>();
         for(Integer num : nums)
             numbers.add(num);
@@ -30,9 +31,10 @@ class Solution {
             }
         }
         
-        
-        
-        return (pascalTriangle[numbers.size() - 1][leftTree.size()] * (getCombinations(leftTree)) % MOD);
+        return ((pascalTriangle[leftTree.size() + rightTree.size()][leftTree.size()] * 
+                (getCombinations(leftTree)) % MOD) 
+                % MOD) 
+                * getCombinations(rightTree) % MOD;
     }
 
     private void createPascalTriangle(int n) {
@@ -50,6 +52,6 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution().numOfWays(new int[] {3, 4, 5, 2, 1}));
+        System.out.println(new Solution().numOfWays(new int[] {3, 1, 2, 5, 4, 6}));
     }
 }

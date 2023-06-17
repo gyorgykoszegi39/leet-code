@@ -14,12 +14,12 @@ public class Solution {
                 list.add(p);
             }
         }
-        int n = arr1.length, m = list.size(), N = Integer.MAX_VALUE >> 1;
+        int n = arr1.length, higher = Integer.MAX_VALUE - 1;
         int[] dp = new int[n + 1];
         for (int i = 1; i <= n; i++) {
-            int num = i < n ? arr1[i] : N;
+            int num = i < n ? arr1[i] : higher;
             int idx = binarySearch(list, num);
-            int cnt = idx >= i ? i : N;
+            int cnt = idx >= i ? i : higher;
             if (arr1[i - 1] < num) {
                 cnt = Math.min(cnt, dp[i - 1]);
             }
@@ -30,7 +30,7 @@ public class Solution {
             }
             dp[i] = cnt;
         }
-        return dp[n] == N ? -1 : dp[n];
+        return dp[n] == higher ? -1 : dp[n];
     }
 
     private int binarySearch(List<Integer> list, int num) {

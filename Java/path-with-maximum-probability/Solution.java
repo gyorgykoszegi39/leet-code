@@ -15,7 +15,7 @@ class CompareProb implements Comparator<double[]> {
 
 }
 public class Solution {
-    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+    public double maxProbabilityDijkstra(int n, int[][] edges, double[] succProb, int start, int end) {
         Map<Integer, ArrayList<double[]>> mapEdges = new HashMap<Integer, ArrayList<double[]>>();
 
         for(int i = 0; i < edges.length; i++) {
@@ -47,8 +47,36 @@ public class Solution {
         return 0;
     }
 
+    public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
+        double[] dp = new double[n];
+        dp[start] = 1;
+        for(int i = 0; i < n - 1; i++) {
+            boolean better = false;
+
+            for(int j = 0; j < edges.length; j++) {
+                int node1 = edges[j][0];
+                int node2 = edges[j][1];
+
+                if(dp[node2] * succProb[j] > dp[node1]) {
+                    dp[node1] = dp[node2] * succProb[j];
+                    better = true;
+                }
+
+                if(dp[node1] * succProb[j] > dp[node2]) {
+                    dp[node2] = dp[node1] * succProb[j];
+                    better = true;
+                }
+            }
+
+            if(!better) break;
+        }
+        return dp[end];
+    }
+
     public static void main(String[] args) {
         Solution s = new Solution();
+        System.out.println(s.maxProbabilityDijkstra(3, new int[][]{{0, 1}, {1, 2}, {0, 2}}, new double[] {0.5, 0.5, 0.2}, 0, 2));
+        System.out.println(s.maxProbabilityDijkstra(3, new int[][]{{0, 1}}, new double[] {0.5}, 0, 2));
         System.out.println(s.maxProbability(3, new int[][]{{0, 1}, {1, 2}, {0, 2}}, new double[] {0.5, 0.5, 0.2}, 0, 2));
         System.out.println(s.maxProbability(3, new int[][]{{0, 1}}, new double[] {0.5}, 0, 2));
 

@@ -3,8 +3,9 @@ import java.util.Arrays;
 public class Solution {
     public String longestCommonPrefix(String[] strs) {
         Arrays.parallelSort(strs);
-        int i = 0, n = strs.length;
-        while(i < strs[0].length() && strs[0].charAt(i) == strs[n - 1].charAt(i)) {
+        String first = strs[0], last = strs[strs.length - 1];
+        int i = 0, n = first.length();
+        while(i < first.length() && first.charAt(i) == last.charAt(i)) {
             i++;
         }
         

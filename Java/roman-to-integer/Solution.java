@@ -1,59 +1,23 @@
 
 public class Solution {
 
-    public int isBefore(String s, int n, int i) {
-        if(i + 1 >= n)
-            return 0;
-        else {
-            char c = s.charAt(i), nextC = s.charAt(i + 1);
-            switch(c) {
-                case 'I':
-                    if(nextC == 'V' || nextC == 'X')
-                        return 2;
-                    break;
-                case 'X':
-                    if(nextC == 'L' || nextC == 'C')
-                        return 20;
-                    break;
-                case 'C':
-                    if(nextC == 'D' || nextC == 'M')
-                        return 200;
-                    break;
-            }
-        }
-
-        return 0;
-
-    }
     public int romanToInt(String s) {
-        int result = 0, n = s.length();
+        int result = 0, prevNumber = 0, number = 0;
         for(int i = 0; i < s.length(); i++) {
             switch(s.charAt(i)) {
-                case 'I':
-                    result += 1;
-                    result -= isBefore(s, n, i);
-                    break;
-                case 'V':
-                    result += 5;
-                    break;
-                case 'X':
-                    result += 10;
-                    result -= isBefore(s, n, i);
-                    break;
-                case 'L':
-                    result += 50;
-                    break;
-                case 'C':
-                    result += 100;
-                    result -= isBefore(s, n, i);
-                    break;
-                case 'D':
-                    result += 500;
-                    break;
-                case 'M':
-                    result += 1000;
-                    break;
+                case 'I'-> number = 1;
+                case 'V'-> number = 5;
+                case 'X'-> number = 10;
+                case 'L'-> number = 50;
+                case 'C'-> number = 100;
+                case 'D'-> number = 500;
+                case 'M'-> number = 1000;
             }
+            if(prevNumber < number) {
+                result -= 2 * prevNumber;
+            }
+            result += number;
+            prevNumber = number;
         }
         return result;
     }

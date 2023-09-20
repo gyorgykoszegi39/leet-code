@@ -28,7 +28,6 @@ public class Solution {
     public static void main(String[] args) {
         TreeNode tree1 = new TreeNode(1, null, new TreeNode(2, new TreeNode(3, null, null), null));
         TreeNode tree2 = new TreeNode(1, null, new TreeNode(2, new TreeNode(3, null, null), null));
-
         Solution s = new Solution();
         System.out.println(s.isSameTree(tree1, tree2));
     }

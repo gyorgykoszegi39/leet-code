@@ -11,9 +11,10 @@ public class Solution {
         for(int i = 0; i < query_row; i++) {
             currChampagneRow = new double[i + 2];
             for(int j = 0; j < prevChampagneRow.length; j++) {
-                if(prevChampagneRow[j] > 0)
-                currChampagneRow[j] += (prevChampagneRow[j] - 1) / 2;
-                currChampagneRow[j + 1] += (prevChampagneRow[j] - 1) / 2;
+                if(prevChampagneRow[j] > 0) {
+                    currChampagneRow[j] += (prevChampagneRow[j] - 1) / 2;
+                    currChampagneRow[j + 1] += (prevChampagneRow[j] - 1) / 2;
+                }
             }
             prevChampagneRow = currChampagneRow;
         }

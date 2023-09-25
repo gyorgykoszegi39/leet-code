@@ -1,6 +1,21 @@
 
 public class Solution {
     public char findTheDifference(String s, String t) {
+        int countChars = 0;
+
+        for(char ch : s.toCharArray()) {
+            countChars -= ch;
+        }
+
+        for(char ch : t.toCharArray()) {
+            countChars += ch;
+
+        }
+
+        return (char) countChars;
+    }
+
+    public char findTheDifference1(String s, String t) {
         int[] countChars = new int[26];
 
         for(char ch : s.toCharArray()) {
@@ -16,7 +31,6 @@ public class Solution {
 
         return 'a';
     }
-
 
     public static void main(String[] args) {
         Solution s = new Solution();

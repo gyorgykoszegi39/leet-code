@@ -1,5 +1,3 @@
-import java.util.Stack;
-
 public class Solution {
     public String removeDuplicateLetters(String s) {
         int[] lastOccurence = new int[26];

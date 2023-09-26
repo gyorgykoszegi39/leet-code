@@ -19,7 +19,6 @@ public class Solution {
     public List<String> binaryTreePaths(TreeNode root) {
         List<String> arr = new ArrayList<>();
         buildPath(root, new StringBuilder(), arr);
-
         return arr;
     }
 
@@ -34,7 +33,6 @@ public class Solution {
 
             buildPath(root.left, path, arr);
             buildPath(root.right, path, arr);
-
 
             if(root.left == null && root.right == null) {
                 arr.add(path.toString());

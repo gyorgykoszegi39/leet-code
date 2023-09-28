@@ -14,8 +14,6 @@ class TreeNode {
 public class Solution {
 
     int result = 0;
-    int rightSum = 0;
-    int leftSum = 0;
     public int findTilt(TreeNode root) {
         calculateTilt(root);
         return result;

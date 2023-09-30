@@ -1,10 +1,10 @@
-import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Deque;
 
 public class Solution {
     public boolean find132pattern(int[] nums) {
         int third = Integer.MIN_VALUE;
-        Deque<Integer> thirdStack = new ArrayDeque<>();
+        Deque<Integer> thirdStack = new LinkedList<>();
 
         for(int i = nums.length - 1; i >= 0; i--) {
             if(nums[i] < third)

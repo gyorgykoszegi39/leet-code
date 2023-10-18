@@ -38,6 +38,5 @@ public class Solution {
         Solution s = new Solution();
         System.out.println(s.minimumTime(3, new int[][] {{1, 3}, {2, 3}}, new int[] {3, 2, 5}));
         System.out.println(s.minimumTime(5, new int[][] {{1, 5}, {2, 5}, {3, 5}, {3, 4}, {4, 5}}, new int[] {1, 2, 3, 4, 5}));
-
     }
 }

@@ -3,9 +3,9 @@ public class Solution {
         int count = 0;
         int mLast, pLast, gLast;
 
-        mLast = findLastIndexOfAGarbage(garbage, "M");
-        pLast = findLastIndexOfAGarbage(garbage, "P");
-        gLast = findLastIndexOfAGarbage(garbage, "G");
+        mLast = findLastIndexOfAGarbage(garbage, 'M');
+        pLast = findLastIndexOfAGarbage(garbage, 'P');
+        gLast = findLastIndexOfAGarbage(garbage, 'G');
 
         count += countTravelTimeToLastGarbage(travel, mLast);
         count += countTravelTimeToLastGarbage(travel, pLast);
@@ -17,9 +17,9 @@ public class Solution {
         return count;
     }
 
-    private int findLastIndexOfAGarbage(String[] garbage, String type) {
+    private int findLastIndexOfAGarbage(String[] garbage, char type) {
         for(int i = garbage.length - 1; i > 0; i--)
-            if(garbage[i].contains(type))
+            if(garbage[i].indexOf(type) > 0)
                 return i;
         return -1;
     }

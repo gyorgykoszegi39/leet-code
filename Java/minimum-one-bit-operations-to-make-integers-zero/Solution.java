@@ -1,14 +1,10 @@
 
 public class Solution {
     public int minimumOneBitOperations(int n) {
-        int count = 0;
-
-        while(n != 0) {
-            count ^= n;
-            n = n / 2;
-        }
-
-        return count;
+        if(n <= 1)
+            return n;
+        
+        return n^minimumOneBitOperations(n/2);
     }
 
     public static void main(String[] args) {

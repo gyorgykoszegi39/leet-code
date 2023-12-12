@@ -5,9 +5,8 @@ public class Solution {
         for(int i = 1; i < arr.length; i++) {
             if(arr[i] == arr[i - 1])
                 count++;
-            else {
+            else
                 count = 1;
-            }
             
             if(count > freq)
                 return arr[i-1];

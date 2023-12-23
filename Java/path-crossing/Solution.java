@@ -1,48 +1,25 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
-class Coordinate {
-    int x;
-    int y;
-
-    public Coordinate(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    @Override
-    public boolean equals(Object coordinate) {
-        Coordinate c = (Coordinate)coordinate;
-        return x == c.x && y == c.y;
-    }
-
-    @Override
-    public int hashCode() {
-        return x * 10000 + y;
-    }
-}
 public class Solution {
     
     public boolean isPathCrossing(String path) {
         int x = 0, y = 0;
-        HashMap<Coordinate, Boolean> coords = new HashMap<>();
-        coords.put(new Coordinate(x, y), true);
+        HashSet<Pair> coords = new HashMap<>();
+        Pair key;
+        coords.add(new Coordinate(x, y));
 
         for(char ch : path.toCharArray()) {
-            if(ch == 'N') {
-                y++;
-            } else if(ch == 'S') {
-                y--;
-            } else if(ch == 'E') {
-                x++;
-            } else if(ch == 'W') {
-                x--;
+            switch(ch) { 
+                case 'N' -> y++; 
+                case 'S' -> y--; 
+                case 'E' -> x++; 
+                case 'W' -> x--; 
             }
-            Coordinate key = new Coordinate(x, y);
-            if(coords.containsKey(key))
+            key = new Coordinate(x, y);
+            if(coords.contains(key))
                 return true;
-            else
-                coords.put(key, true);
-
+            
+            coords.put(key, true);
         }
         
         return false;

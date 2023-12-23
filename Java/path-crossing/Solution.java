@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
 class Coordinate {
     int x;
@@ -20,29 +20,27 @@ class Coordinate {
         return x * 10000 + y;
     }
 }
+
 public class Solution {
     
     public boolean isPathCrossing(String path) {
         int x = 0, y = 0;
-        HashMap<Coordinate, Boolean> coords = new HashMap<>();
-        coords.put(new Coordinate(x, y), true);
+        HashSet<Coordinate> coords = new HashSet<>();
+        Coordinate key;
+        coords.add(new Coordinate(x, y));
 
         for(char ch : path.toCharArray()) {
-            if(ch == 'N') {
-                y++;
-            } else if(ch == 'S') {
-                y--;
-            } else if(ch == 'E') {
-                x++;
-            } else if(ch == 'W') {
-                x--;
+            switch(ch) { 
+                case 'N' -> y++; 
+                case 'S' -> y--; 
+                case 'E' -> x++; 
+                case 'W' -> x--; 
             }
-            Coordinate key = new Coordinate(x, y);
-            if(coords.containsKey(key))
+            key = new Coordinate(x, y);
+            if(coords.contains(key))
                 return true;
-            else
-                coords.put(key, true);
-
+            
+            coords.add(key);
         }
         
         return false;

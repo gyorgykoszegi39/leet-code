@@ -5,11 +5,9 @@ public class Solution {
         for(String word : words)
             for(char ch : word.toCharArray())
                 count[ch - 'a']++;
-
-        int countw = words.length;
         
         for(int i = 0; i < 26; i++)
-            if(count[i] % countw != 0)
+            if(count[i] %  words.length != 0)
                 return false;
 
         return true;

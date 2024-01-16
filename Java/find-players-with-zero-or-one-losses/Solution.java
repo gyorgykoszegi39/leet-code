@@ -5,7 +5,7 @@ import java.util.Map.Entry;
 
 public class Solution {
     public List<List<Integer>> findWinners(int[][] matches) {
-        int[] table = new int[10001];
+        int[] table = new int[100001];
         List<List<Integer>> winners = new ArrayList<>();
         List<Integer> secondPlace = new ArrayList<>();
         List<Integer> firstPlace = new ArrayList<>();
@@ -17,7 +17,7 @@ public class Solution {
             table[match[1]] = table[match[1]] == -1 ? 1 : table[match[1]] + 1;
         }
 
-        for(int i = 0; i < 10001; i++) {
+        for(int i = 0; i < 100001; i++) {
             if(table[i] == -1) {
                 firstPlace.add(i);
             } else if(table[i] == 1) {

@@ -28,7 +28,7 @@ public class Solution {
         }
 
         for(int i = 0; i < n; i++) {
-            result += (long) arr[i] * (i - prevMin[i]) * (nextMin[i] - i);
+            result = (result + (long) arr[i] * (i - prevMin[i]) * (nextMin[i] - i)) % mod;
         }
 
         return (int) result;

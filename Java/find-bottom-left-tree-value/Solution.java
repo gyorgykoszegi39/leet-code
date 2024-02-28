@@ -30,12 +30,12 @@ public class Solution {
         BFS(node.left, depth + 1);
         BFS(node.right, depth + 1);
     }
-    
+
     public int findBottomLeftValue(TreeNode root) {
         mostLeftValueRec = 0;
         maxDepth = 0;
 
-        BFS(root, 0);
+        BFS(root, 1);
         return mostLeftValueRec;
     }
     public int findBottomLeftValue1(TreeNode root) {

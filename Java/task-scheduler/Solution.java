@@ -15,9 +15,8 @@ public class Solution {
             }
 
         }
+        
         return Math.max(tasks.length, (maxFreq - 1) * (n + 1) + count);
-
-
     }
 
     public static void main(String[] args) {

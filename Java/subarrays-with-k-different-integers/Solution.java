@@ -16,9 +16,9 @@ public class Solution {
 
             while(count > k) {
                 freq[nums[j]]--;
-                j++;
-                if(freq[nums[j - 1]] == 0)
+                if(freq[nums[j]] == 0)
                     count--;
+                j++;
             }
 
             result += i - j + 1;

@@ -23,7 +23,6 @@ public class Solution {
     }
 
     private boolean findWord(char[][] board, int i, int j, char[] word, int k) {
-      //  System.out.println(i + " " + j + " "  + " " + k + " " + word[k]);
         if(k == word.length)
             return true;
 

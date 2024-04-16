@@ -16,17 +16,12 @@ public class Solution {
         if(root == null)
             return 0;
 
-        if(root.left == null && root.right == null)
-            return root.val;
-
         return count(root, 0);
     }
 
     private int count(TreeNode root, int number) {
         if(root.left == null && root.right == null) {
-            System.out.println(number);
             return number * 10 + root.val;
-        }
 
         int sum = 0;
         if(root.left != null)

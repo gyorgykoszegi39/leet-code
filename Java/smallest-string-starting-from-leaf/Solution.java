@@ -31,6 +31,7 @@ public class Solution {
                 result.setLength(0);
                 result.append(reversedString);
             }
+            buildResult.reverse();
         }
         
         smallestFromLeaf(node.left, buildResult, result);

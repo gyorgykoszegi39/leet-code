@@ -15,6 +15,5 @@ public class Solution {
         System.out.println(s.reversePrefix("abcdefd", 'd'));
         System.out.println(s.reversePrefix("xyxzxe", 'z'));
         System.out.println(s.reversePrefix("abcde", 'z'));
-
     }
 }
